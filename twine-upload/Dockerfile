@@ -1,7 +1,7 @@
 FROM python:3.7
 
-LABEL com.github.actions.name="GitHub Action for Twine"
-LABEL com.github.actions.description="Action that allows use of twine"
+LABEL com.github.actions.name="GitHub Action for uploading with twine"
+LABEL com.github.actions.description="Action that uploads a package with twine"
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="blue"
 
@@ -11,7 +11,7 @@ LABEL homepage="https://github.com/OrangutanGaming/actions"
 LABEL maintainer="Nihaal Sangha (Orangutan) <OrangutanGaming@github.com>"
 
 RUN pip install -U pip && \
-    pip install -U twine~=1.13 setuptools
+    pip install -U twine~=1.13 setuptools wheel
 COPY entrypoint.sh /entrypoint.sh
 WORKDIR /workspace
 

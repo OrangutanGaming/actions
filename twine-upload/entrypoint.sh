@@ -15,4 +15,5 @@ elif [ -z "$TWINE_PASSWORD" ]; then
     exit 1
 fi
 
-bash -c "twine $*"
+bash -c "python setup.py sdist bdist_wheel"
+bash -c "twine upload dist/*"
