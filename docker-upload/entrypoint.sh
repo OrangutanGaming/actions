@@ -50,13 +50,13 @@ then
   sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
   sh -c "docker push $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
 else
-  if [ $DOCKER_IMAGE_TAG_REF != "false" ]
+  if [ "${DOCKER_IMAGE_TAG_REF}" != "false" ]
   then
     sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$IMAGE_TAG"
     sh -c "docker push $REGISTRY_IMAGE:$IMAGE_TAG"
   fi
 
-  if [ $DOCKER_IMAGE_TAG_SHA != "false" ]
+  if [ "${DOCKER_IMAGE_TAG_SHA}" != "false" ]
   then
     sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:${GITHUB_SHA:0:7}"
     sh -c "docker push $REGISTRY_IMAGE:${GITHUB_SHA:0:7}"
